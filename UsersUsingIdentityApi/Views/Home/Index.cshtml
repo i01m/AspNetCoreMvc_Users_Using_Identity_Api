@@ -1,0 +1,23 @@
+﻿@model Dictionary<string, object>
+
+<div class="bg-primary m-1 p-1 text-white"><h4>User Details</h4></div>
+
+<table class="table table-sm table-bordered m-1 p-1">
+    @foreach (var kvp in Model)
+     {
+        <tr><th>@kvp.Key</th><td>@kvp.Value</td></tr>
+     }    
+</table>
+@if (User?.Identity?.IsAuthenticated ?? false)
+{
+    <a asp-controller="Account" asp-action="Logout" class="btn btn-danger">Logout</a>
+}
+<div></div>
+<br />
+<div><a asp-action="Index" asp-controller="Admin" class="btn btn-dark btn-sm">Admin Users</a></div>
+<br />
+<div><a asp-action="Index" asp-controller="RoleAdmin" class="btn btn-dark btn-sm">Admin Roles</a></div>
+<br />
+<div><a asp-action="Index" asp-controller="Claims" class="btn btn-dark btn-sm">Current User Claim Details</a></div>
+<br />
+<div><a asp-action="Index" asp-controller="Document" class="btn btn-dark btn-sm">Document</a></div>
